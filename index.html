@@ -1,23 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Media Exercise</title>
-</head>
-<body>
-  <div class="container">
-    <!-- AUDIO HTML GOES HERE -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Exercise</title>
+    <style>
+      body {
+        background-image: url("assets/images/background.jpg");
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        background-color: green;
+        margin: 0;
+        padding: 20px;
+        font-family: sans-serif;
+      }
 
-    <!-- VIDEO HTML GOES HERE -->
+      img {
+        display: block;
+        margin-top: 20px;
+      }
 
-    <!-- IMAGE MAP HTML GOES HERE-->
+      canvas {
+        display: block;
+        margin-top: 20px;
+        background-color: #ffdbdb;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Audio: Piano</h2>
+    <audio src="assets/audio/piano.wav" controls muted loop></audio>
 
-    <!-- CANVAS HTML GOES HERE -->
-  </div>
+    <h2>Video: Ocean</h2>
+    <video
+      src="assets/video/ocean.mp4"
+      controls
+      muted
+      poster="assets/images/poster.jpg"
+      width="600"
+    >
+      Your browser does not support the video tag.
+    </video>
 
-  <script>
-    /* CANVAS JAVASCRIPT GOES HERE */
-  </script>
-</body>
+    <h2>Image Map: Fruit Table</h2>
+    <img
+      src="assets/images/fruit_table.jpg"
+      width="600"
+      usemap="#fruitmap"
+      alt="Fruit Table"
+    />
+
+    <map name="fruitmap">
+      <area
+        shape="rect"
+        coords="0,280,140,580"
+        href="https://en.wikipedia.org/wiki/Lavandula"
+        alt="Lavender"
+        target="_blank"
+      />
+      <area
+        shape="rect"
+        coords="345,350,595,690"
+        href="https://en.wikipedia.org/wiki/Orange_(fruit)"
+        alt="Orange"
+        target="_blank"
+      />
+      <area
+        shape="circle"
+        coords="435,225,75"
+        href="https://en.wikipedia.org/wiki/Coffee"
+        alt="Coffee"
+        target="_blank"
+      />
+    </map>
+
+    <h2>Canvas: Colored Square</h2>
+    <canvas id="squareCanvas" width="500" height="500"></canvas>
+    <script>
+      const canvas = document.getElementById("squareCanvas");
+      const ctx = canvas.getContext("2d");
+
+      ctx.strokeStyle = "red";
+      ctx.beginPath();
+      ctx.moveTo(100, 100);
+      ctx.lineTo(400, 100);
+      ctx.stroke();
+
+      ctx.strokeStyle = "green";
+      ctx.beginPath();
+      ctx.moveTo(400, 100);
+      ctx.lineTo(400, 400);
+      ctx.stroke();
+
+      ctx.strokeStyle = "blue";
+      ctx.beginPath();
+      ctx.moveTo(400, 400);
+      ctx.lineTo(100, 400);
+      ctx.stroke();
+
+      ctx.strokeStyle = "purple";
+      ctx.beginPath();
+      ctx.moveTo(100, 400);
+      ctx.lineTo(100, 100);
+      ctx.stroke();
+    </script>
+  </body>
 </html>
